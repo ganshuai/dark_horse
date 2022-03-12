@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: pgsql
+    restart: always
+    privileged: true
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - /home/server/pg_data/data:/var/lib/postgresql/data/pgdata
